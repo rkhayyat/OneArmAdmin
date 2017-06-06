@@ -1,0 +1,93 @@
+{
+  "project_info": {
+    "project_number": "938559097704",
+    "firebase_url": "https://forum-syrien.firebaseio.com",
+    "project_id": "forum-syrien",
+    "storage_bucket": "forum-syrien.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:938559097704:android:39dd55066149da0a",
+        "android_client_info": {
+          "package_name": "com.rachid.alkhayat"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "938559097704-p2tmu25ve14gdrro6qcq3923hjbqp0a4.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.rachid.alkhayat",
+            "certificate_hash": "1a9a2780c58fc7bac8aa8b493f7dfe467485dda3"
+          }
+        },
+        {
+          "client_id": "938559097704-bju16gv9u54ns9c6in3682mae8kjno5o.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAUxUlQ5dpt5Qpd1_4fX-6_qZj0AeKCGC4"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "938559097704-3gmqpnajb2guej2tfs3ke1gfs9i51ibc.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.rachid.alkhayat"
+              }
+            },
+            {
+              "client_id": "938559097704-bju16gv9u54ns9c6in3682mae8kjno5o.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:938559097704:android:a100ae147fbf31ed",
+        "android_client_info": {
+          "package_name": "com.rachid.admin"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "938559097704-bju16gv9u54ns9c6in3682mae8kjno5o.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAUxUlQ5dpt5Qpd1_4fX-6_qZj0AeKCGC4"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

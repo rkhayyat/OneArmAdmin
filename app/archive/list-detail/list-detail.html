@@ -1,0 +1,61 @@
+<ActionBar class="action-bar" title="">
+    <NavigationButton text="عودة" android.systemIcon="ic_menu_back" (tap)="back()"></NavigationButton>
+      <ActionItem (tap)="onEdit()" ios.systemIcon="2" android.systemIcon="ic_menu_edit" ios.position="right"
+                    visibility="{{ isEditing ? 'collapse' : 'visible' }}">
+      </ActionItem>
+      <ActionItem (tap)="onCancel()"  ios.systemIcon="1" android.systemIcon="ic_menu_close_clear_cancel"
+                    visibility="{{ isEditing ? 'visible' : 'collapse' }}">
+      </ActionItem>
+      <ActionItem (tap)="editArticle(id)"
+            ios.systemIcon="3" ios.position="left"
+            android.systemIcon="ic_menu_save" android.position="actionBar"
+            visibility="{{ isEditing ? 'visible' : 'collapse' }}">
+      </ActionItem>
+      <ActionItem (tap)="onSelectSingleTap()"
+            ios.systemIcon="15" ios.position="left"
+            android.systemIcon="ic_menu_gallery" android.position="actionBar"
+            visibility="{{ isEditing ? 'visible' : 'collapse' }}">
+      </ActionItem>
+      <ActionItem (tap)="takePhoto()"
+            ios.systemIcon="15" ios.position="left"
+            android.systemIcon="ic_menu_camera" android.position="actionBar"
+            visibility="{{ isEditing ? 'visible' : 'collapse' }}">
+      </ActionItem>
+    <ActionItem (tap)="goHome()"
+            ios.systemIcon="9" ios.position="left"
+            android.systemIcon="ic_menu_home" android.position="actionBar">
+      </ActionItem>
+    <ActionItem (tap)="logout()" android.position="popup" ios.position="left" text="خروج">
+      </ActionItem>
+</ActionBar>
+    <ScrollView>
+        <StackLayout #myArticle class="card form">  
+            <Label class="h2 detail-title"  [text]="title"></Label> 
+            <Image *ngIf="imagepath" width="100%"  [src]="imagepath" class="image-article"></Image>  
+			<Label class="h2 detail-title-admin"  text="إدخال وتعديل النص:" *ngIf="isEditing"></Label>			
+            <TextView   
+                *ngIf="isEditing"
+                hint="أدخل نص" 
+                class="input input-border" 
+                [text]="text"
+                [(ngModel)]="text"
+                [editable]="true"
+                textAlignment="right"
+                (propertyChange)="onTextViewChange()">
+            </TextView>
+            <StackLayout class="hr-dark" *ngIf="isEditing"></StackLayout>
+			<Label class="h2 detail-title-admin"  text="عرض النص:" *ngIf="isEditing"></Label>
+            <HtmlView [html]="textHtml" ></HtmlView>
+            <Image [src]="image"></Image>
+            <!--<GridLayout columns="*,*,*" *ngIf="!isAnonymous">
+                <Button col="0" class="btn btn-outline gold font-awesome" text="&#xf030; كاميرا" (tap)="takePhoto()"></Button>
+                <Button col="1" text="&#xf1c5; تحميل صورة"  class="btn btn-outline gold font-awesome" (tap)="onSelectSingleTap()"></Button>
+                <Button col="2" class="btn btn-primary font-awesome" text="&#xf0c2; حفظ" (tap)="editArticle(id)"></Button>
+            </GridLayout> -->
+        </StackLayout>
+    </ScrollView>
+    <StackLayout class="dimmer" visibility="{{isLoading ? 'visible' : 'collapsed'}}">
+       <GridLayout rows="*" visibility="{{isLoading ? 'visible' : 'collapsed'}}">
+            <ActivityIndicator [busy]="isLoading" [visibility]="isLoading ? 'visible' : 'collapse'" row="1" horizontalAlignment="center" verticalAlignment="center"></ActivityIndicator>    
+       </GridLayout>
+     </StackLayout>

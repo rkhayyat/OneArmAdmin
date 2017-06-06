@@ -1,0 +1,136 @@
+<ActionBar title="" icon="" class="action-bar">
+      <NavigationButton text="عودة" android.systemIcon="ic_menu_back" (tap)="back()"></NavigationButton>
+      <ActionItem (tap)="onEdit()" ios.systemIcon="2" android.systemIcon="ic_menu_edit" ios.position="right"
+                    visibility="{{ isEditing ? 'collapse' : 'visible' }}">
+      </ActionItem>
+      <ActionItem (tap)="onCancel()"  ios.systemIcon="1" android.systemIcon="ic_menu_close_clear_cancel"
+                    visibility="{{ isEditing ? 'visible' : 'collapse' }}">
+      </ActionItem>
+      <ActionItem (tap)="editCaf()"
+            ios.systemIcon="3" ios.position="left"
+            android.systemIcon="ic_menu_save" android.position="actionBar"
+            visibility="{{ isEditing ? 'visible' : 'collapse' }}">
+      </ActionItem>
+    <ActionItem (tap)="logout()" android.position="popup" ios.position="left" text="خروج">
+      </ActionItem>
+    </ActionBar>
+<StackLayout>
+    
+    <ScrollView>
+        <StackLayout *ngIf="!isEditing">
+
+        <StackLayout class="card"  *ngFor="let item of caf$ | async | slice:0:1">
+            <GridLayout rows="auto" columns="*" margin="0" marginTop="0">
+                <Label text="{{item.dateValid}}" row="0" col="0" class="h3 font-icomoon" horizontalAlignment="center"></Label>
+            </GridLayout>
+            <GridLayout rows="auto" columns="*,*" margin="0" marginTop="0">
+                <Label text="&#xe971; عازب" row="0" col="0" class="h2 font-icomoon" horizontalAlignment="center"></Label>
+                <Label text="&#xe972; زوجين" row="0" col="1" class="h2 font-icomoon" horizontalAlignment="center"></Label>
+            </GridLayout>
+            <GridLayout rows="auto" columns="*" margin="0" marginTop="0">
+                <GridLayout columns="*,*" >
+                    <StackLayout columns="auto" padding="8" class="cardStyleSingle" col="0">  
+                            <label text="بدون أولاد" textWrap="true" class="size14" row="0" ></label>
+                            <label text="{{item.seuleNonEnfant | currencyEuro}}" textWrap="true" class="size20" row="1" ></label>
+                    </StackLayout>
+                    <StackLayout columns="auto" padding="8" class="cardStyleCouple" col="1">  
+                            <label text="بدون أولاد" textWrap="true" class="size14" row="0" ></label>
+                            <label text="{{item.coupleNonEnfant | currencyEuro}}" textWrap="true" class="size20" row="1" ></label>
+                    </StackLayout>
+                </GridLayout>
+            </GridLayout>
+
+            <GridLayout rows="auto" columns="*" margin="0" marginTop="0">
+                <GridLayout columns="*,*" >
+                    <StackLayout columns="auto" padding="8" class="cardStyleSingle" col="0">  
+                            <label text="مع ولد واحد" textWrap="true" class="size14" row="0" ></label>
+                            <label text="{{item.seuleUnEnfant | currencyEuro}}" textWrap="true" class="size20" row="1" ></label>
+                    </StackLayout>
+                    <StackLayout columns="auto" padding="8" class="cardStyleCouple" col="1">  
+                            <label text="مع ولد واحد" textWrap="true" class="size14" row="0" ></label>
+                            <label text="{{item.coupleUnEnfant | currencyEuro}}" textWrap="true" class="size20" row="1" ></label>
+                    </StackLayout>
+                </GridLayout>
+            </GridLayout>
+            <GridLayout rows="auto" columns="*" margin="0" marginTop="0">
+                <GridLayout columns="*,*" >
+                    <StackLayout columns="auto" padding="8" class="cardStyleSingle" col="0">  
+                            <label text="مع ولدين" textWrap="true" class="size14" row="0" ></label>
+                            <label text="{{item.seuleDeuxEnfant | currencyEuro}}" textWrap="true" class="size20" row="1" ></label>
+                    </StackLayout>
+                    <StackLayout columns="auto" padding="8" class="cardStyleCouple" col="1">  
+                            <label text="مع ولدين" textWrap="true" class="size14" row="0" ></label>
+                            <label text="{{item.coupleDeuxEnfant | currencyEuro}}" textWrap="true" class="size20" row="1" ></label>
+                    </StackLayout>
+                </GridLayout>
+            </GridLayout>
+            <GridLayout rows="auto" columns="*" margin="0" marginTop="0">
+                <GridLayout columns="*,*" >
+                    <StackLayout columns="auto" padding="8" class="cardStyleSingle" col="0">  
+                            <label text="عن كل ولد إضافي" textWrap="true" class="size14" row="0" ></label>
+                            <label text="{{item.seuleParEnfantSupp | currencyEuro}}" textWrap="true" class="size20" row="1" ></label>
+                    </StackLayout>
+                    <StackLayout columns="auto" padding="8" class="cardStyleCouple" col="1">  
+                            <label text="عن كل ولد إضافي" textWrap="true" class="size14" row="0" ></label>
+                            <label text="{{item.coupleParEnfantSupp | currencyEuro}}" textWrap="true" class="size20" row="1" ></label>
+                    </StackLayout>
+                </GridLayout>
+            </GridLayout>
+            <GridLayout rows="auto" columns="*" margin="0" marginTop="0">
+                <Label text="&#xe901; مستفيد من مساعدة السكن" row="0" col="0" class="h3 font-icomoon" horizontalAlignment="center"></Label>
+            </GridLayout>
+            <GridLayout rows="auto" columns="*" margin="0" marginTop="0">
+                <GridLayout columns="*,*,*" >
+                    <StackLayout columns="auto" padding="8" class="cardStyleHome" col="2">  
+                            <label text="شخص واحد" textWrap="true" class="size14" row="0" ></label>
+                            <label text="{{item.forfaitLogUnePer | currencyEuro}}" textWrap="true" class="size18" row="1" ></label>
+                    </StackLayout>
+                    <StackLayout columns="auto" padding="8" class="cardStyleHome" col="1">  
+                            <label text="شخصين" textWrap="true" class="size14" row="0" ></label>
+                            <label text="{{item.forfaitLogDeuxPer | currencyEuro}}" textWrap="true" class="size18" row="1" ></label>
+                    </StackLayout>
+                    <StackLayout columns="auto" padding="8" class="cardStyleHome" col="0">  
+                            <label text="ثلاثة أشخاص" textWrap="true" class="size14" row="0" ></label>
+                            <label text="{{item.forfaitLogTroisPer | currencyEuro}}" textWrap="true" class="size18" row="1" ></label>
+                    </StackLayout>
+                </GridLayout>
+            </GridLayout>
+            </StackLayout>
+        </StackLayout>
+        <StackLayout *ngIf="isEditing">
+            <StackLayout class="card" *ngFor="let item of caf$ | async | slice:0:1">
+            <GridLayout rows="auto" columns="*" margin="5" marginTop="10">
+                <TextField #dateValid hint="السنة" row="0" col="0" class="text-input" [text]="item.dateValid"></TextField>        
+            </GridLayout>
+            <GridLayout rows="auto" columns="*,*" margin="5" marginTop="10">
+                <Label text="عازب" row="0" col="0" class="h2 " horizontalAlignment="center"></Label>
+                <Label text="زوجين" row="0" col="1" class="h2 " horizontalAlignment="center"></Label>
+            </GridLayout>
+            <GridLayout rows="auto" columns="*,*" margin="5" marginTop="10">
+                <TextField #seuleNonEnfant keyboardType="number" [text]="item.seuleNonEnfant" hint="بدون أولاد" row="0" col="0" class="text-input"></TextField>
+                <TextField #coupleNonEnfant keyboardType="number" [text]="item.coupleNonEnfant" hint="بدون أولاد" row="0" col="1" class="text-input"></TextField>
+            </GridLayout>
+            <GridLayout rows="auto" columns="*,*" margin="5" marginTop="10">
+                <TextField #seuleUnEnfant keyboardType="number" hint="مع ولد واحد"  [text]="item.seuleUnEnfant" row="0" col="0" class="text-input"></TextField>
+                <TextField #coupleUnEnfant keyboardType="number" hint="مع ولد واحد" [text]="item.coupleUnEnfant" row="0" col="1" class="text-input"></TextField>
+            </GridLayout>
+            <GridLayout rows="auto" columns="*,*" margin="5" marginTop="10">
+                <TextField #seuleDeuxEnfant keyboardType="number" [text]="item.seuleDeuxEnfant" hint="مع ولدين" row="0" col="0" class="text-input"></TextField>
+                <TextField #coupleDeuxEnfant keyboardType="number" [text]="item.coupleDeuxEnfant" hint="مع ولدين" row="0" col="1" class="text-input"></TextField>
+            </GridLayout>
+            <GridLayout rows="auto" columns="*,*" margin="5" marginTop="10">
+                <TextField #seuleParEnfantSupp keyboardType="number" [text]="item.seuleParEnfantSupp" hint="عن كل ولد إضافي" row="0" col="0" class="text-input"></TextField>
+                <TextField #coupleParEnfantSupp keyboardType="number" [text]="item.coupleParEnfantSupp" hint="عن كل ولد إضافي" row="0" col="1" class="text-input"></TextField>
+            </GridLayout>
+            <GridLayout rows="auto" columns="*" margin="5" marginTop="10">
+                <Label text="حزمة السكن" row="0" col="0" class="h3" horizontalAlignment="center"></Label>
+            </GridLayout>
+            <GridLayout rows="auto" columns="*,*,*" margin="5" marginTop="10">
+                <TextField #forfaitLogUnePer keyboardType="number" [text]="item.forfaitLogUnePer" hint="شخص واحد" row="0" col="0" class="text-input"></TextField>
+                <TextField #forfaitLogDeuxPer keyboardType="number" [text]="item.forfaitLogDeuxPer" hint="شخصين" row="0" col="1" class="text-input"></TextField>
+                <TextField #forfaitLogTroisPer keyboardType="number" [text]="item.forfaitLogTroisPer" hint="ثلاثة أشخاص" row="0" col="2" class="text-input"></TextField>
+            </GridLayout>
+            </StackLayout>            
+        </StackLayout>
+    </ScrollView>
+</StackLayout>

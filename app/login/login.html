@@ -1,0 +1,16 @@
+<ActionBar class="action-bar" title="إيد وحدة - إشراف"></ActionBar>
+    <StackLayout class="card">       
+        <Image class="logo" src="res://logo" stretch="none" horizontalAlignment="center"></Image>
+        <StackLayout [class]="isLoggingIn ? 'form white' : 'form gold'">
+            <TextField #email class="input input-border" hint="اسم المستخدم" keyboardType="email" [(ngModel)]="user.email" autocorrect="false"
+                autocapitalizationType="none">
+            </TextField>
+            <TextField #password class="input input-border" hint="كلمة المرور" secure="true" [(ngModel)]="user.password">
+            </TextField>
+            <Button text="دخول  &#xf090;" class="btn btn-primary font-awesome" (tap)="submit()"></Button>
+
+			<!--<Button text="دخول كزائر  &#xf007;" class="btn btn-outline gold font-awesome" (tap)="guestSubmit()"></Button>-->
+            <!--<Button [text]="isLoggingIn ? 'تسجيل الدخول     ' : 'العودة إلى صفحة الدخول'" (tap)="toggleDisplay()" class="btn"></Button>
+            <Button horizontalAlignment="center" class="btn" text="Forgot password" (tap)="forgotPassword()" [opacity]="isLoggingIn ? 1 : 0"></Button>-->
+        </StackLayout>
+   </StackLayout>

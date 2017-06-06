@@ -1,0 +1,74 @@
+    <ActionBar title={{categoryTitle}} icon="" class="action-bar">
+      <NavigationButton text="عودة" android.systemIcon="ic_menu_back" (tap)="back()"></NavigationButton>      
+      <ActionItem (tap)="add()" ios.systemIcon="4" android.systemIcon="ic_menu_add" ios.position="right">
+      </ActionItem>
+      <ActionItem (tap)="goHome()"
+            ios.systemIcon="9" ios.position="left" android.position="actionBar"
+            android.systemIcon="ic_menu_home" >
+      </ActionItem>
+      <ActionItem (tap)="logout()" android.position="popup" text="خروج" android.systemIcon="ic_menu_login">
+      </ActionItem>
+    </ActionBar>
+
+
+<!--<ScrollView>-->
+
+    <StackLayout>
+    <!--<Label class="h3 header" text="عنوان مقالة جديد:" ></Label>-->
+    <!--<Label class="h3 header" text="أدخل كلمة بحث:" *ngIf="isAnonymous"></Label>-->
+    <StackLayout class="card input-field" height="60">    
+        <!--<GridLayout columns="auto,*" class="form" >-->
+           <!--<Button *ngIf="!isAnonymous" class="btn btn-primary font-awesome"  height="35" width="35" col="0" text="&#xf067;" (tap)="add()"></Button>-->
+            <!--<StackLayout class="input-field" col="1">                -->
+                <TextField hint="عنوان مقالة جديد" class="input input-border" #newArticle [(ngModel)]="title"></TextField>
+            <!--</StackLayout>-->
+        <!--</GridLayout>-->
+    </StackLayout>
+    <Label class="h3 header" text="المقالات المتوفرة:"   ></Label>
+    <ListView [items]="articles$ | async">
+            <template let-item="item">                  
+                <GridLayout  columns="*">
+                    <GridLayout columns="auto,*,auto" rows="*,*" col="0" class="card">
+                        <Image class="m-5"   (tap)="viewDetail(item.id, categoryTitle)"  
+                                             horizontalAlignment="left" 
+                                             rowSpan="2" 
+                                             row="0" 
+                                             col="0" 
+                                              width="100" height="100"  
+                                             [src]="item.imagepath.length>0 ? item.imagepath : '~/assets/camera.png'">
+                        </Image>
+                        <Label class="m-5 h3"  textWrap="true" (tap)="viewDetail(item.id, categoryTitle)" col="1" row="0" [text]='item.title'></Label>
+                        <!--<Label class="m-10 font-awesome"   style="color:black;" col="2"  row="0" text='&#xf15c;'></Label>-->
+                        <Image class="m-5" col="2"  row="0" horizontalAlignment="right" width="40" height="40" (tap)="delete(item)" [src]="'~/assets/trash.png'"></Image>
+                        <Label class="m-10 font-awesome h5"   style="color:black;" col="1"  horizontalAlignment="right" colSpan="2" row="1" [text]='(item.date*-1) | date:"longDate"'></Label>
+
+                    </GridLayout>                 
+                </GridLayout>
+            </template>
+    </ListView>
+
+        <!--<StackLayout *ngIf="!isAnonymous">
+            <StackLayout *ngFor="let item of articles$ | async" class="card">
+                <GridLayout columns="auto,*,auto">
+                    <Image class="m-5" horizontalAlignment="left" col="0" width="40" height="40" [src]="item.imagepath.length>0 ? item.imagepath : '~/assets/camera.png'"></Image>
+                    <Label class="m-5"  (tap)="viewDetail(item.id, categoryTitle)" col="1" [text]='item.title'></Label>
+                    <Image class="m-5" col="2" horizontalAlignment="right" width="40" height="40" (tap)="delete(item)" [src]="'~/assets/trash.png'"></Image>
+                </GridLayout>   
+            </StackLayout>
+        </StackLayout>-->
+        <!--<StackLayout *ngIf="isAnonymous">
+            <StackLayout *ngFor="let item of articles$ | async" class="card">
+                <GridLayout columns="auto,*,auto">
+                    <Image class="m-5" horizontalAlignment="left" col="0" width="40" height="40" [src]="item.imagepath.length>0 ? item.imagepath : '~/assets/camera.png'"></Image>
+                    <Label class="m-5"  (tap)="viewDetail(item.id, categoryTitle)" col="1" [text]='item.title'></Label>
+                    <Image class="m-5" col="2" horizontalAlignment="right" width="25" height="25"  [src]="'~/assets/article-icon.png'"></Image>
+                </GridLayout>
+            </StackLayout>
+        </StackLayout>-->
+    </StackLayout>
+    <StackLayout class="dimmer" visibility="{{isLoading ? 'visible' : 'collapsed'}}">
+               <GridLayout rows="*" visibility="{{isLoading ? 'visible' : 'collapsed'}}">
+                       <ActivityIndicator [busy]="isLoading" [visibility]="isLoading ? 'visible' : 'collapse'" row="1" horizontalAlignment="center" verticalAlignment="center"></ActivityIndicator>    
+               </GridLayout>
+    </StackLayout>
+<!--</ScrollView>-->

@@ -1,0 +1,39 @@
+<ActionBar title="أقسام المقالات" icon="" class="action-bar">
+      <NavigationButton text="عودة" android.systemIcon="ic_menu_back" (tap)="back()"></NavigationButton>
+      <ActionItem (tap)="add()" ios.systemIcon="4" android.systemIcon="ic_menu_add" ios.position="right">
+      </ActionItem>
+      <ActionItem (tap)="logout()" android.position="popup" ios.position="left" text="خروج"></ActionItem>
+</ActionBar>
+<ScrollView >
+    <StackLayout>
+
+    <StackLayout class="card input-field">    
+                <TextField class="input input-border" #newCategory [(ngModel)]="title" hint="إضافة قسم جديد"></TextField>
+    </StackLayout>
+    <Label class="h2 header" text="الأقسام الرئيسية :"  ></Label>
+
+        <StackLayout  class="card-category1" *ngIf="isAnonymous">
+            <StackLayout *ngFor="let item of category$ | async" class="card-category">
+                <GridLayout columns="*" >
+			    	<Button [text]="item.title" class="btn btn-primary  btn-rounded-sm" (tap)="viewArticleList(item.id,item.title)"></Button>
+                </GridLayout>
+            </StackLayout>
+        </StackLayout>
+
+        <StackLayout *ngIf="!isAnonymous">
+            <StackLayout *ngFor="let item of category$ | async" class="card-category1">
+                <GridLayout columns="auto,auto,*,auto">
+                    <Button class="btn btn-primary font-awesome"  height="34" width="34" col="0" text="&#xf063;" (tap)="editCategory(item.id, item.orderNumber, false)"></Button>
+                    <Button class="btn btn-primary font-awesome"  height="34" width="34" col="1" text="&#xf062;" (tap)="editCategory(item.id, item.orderNumber, true)"></Button>
+                    <Label class="m-5"  (tap)="viewArticleList(item.id,item.title)"  col="2" [text]='item.title'></Label>
+                    <Image class="m-5" col="3" horizontalAlignment="right" width="40" height="40" (tap)="delete(item)" [src]="'~/assets/trash.png'" ></Image>
+                </GridLayout>                 
+            </StackLayout>
+        </StackLayout>
+    </StackLayout>
+</ScrollView>
+<StackLayout class="dimmer" visibility="{{isLoading ? 'visible' : 'collapsed'}}">
+               <GridLayout rows="*" visibility="{{isLoading ? 'visible' : 'collapsed'}}">
+                       <ActivityIndicator [busy]="isLoading" [visibility]="isLoading ? 'visible' : 'collapse'" row="1" horizontalAlignment="center" verticalAlignment="center"></ActivityIndicator>    
+               </GridLayout>
+</StackLayout>

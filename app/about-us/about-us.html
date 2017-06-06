@@ -1,0 +1,27 @@
+    <ActionBar title="من نحن" android.icon="res://icon" class="action-bar">
+        <NavigationButton text="عودة" android.systemIcon="ic_menu_back" (tap)="back()"></NavigationButton>   
+      <ActionItem (tap)="logout()" android.position="popup" ios.position="left" text="خروج"></ActionItem>      
+    </ActionBar>
+<TabView tabsBackgroundColor="lightgray" #element [(ngModel)]="selectedIndex" class="font-awesome tab-view-font">
+    <template tabItem title="&#xf162; رقم النسخة">
+        <StackLayout>
+              <StackLayout class="card">
+                      <StackLayout >
+                             <HtmlView [html]="textHtml2" ></HtmlView>
+                             <StackLayout class="hr-dark" ></StackLayout>
+                      </StackLayout>
+              </StackLayout>
+         </StackLayout>
+    </template>
+    <StackLayout *tabItem="{title: '&#xf129; من نحن'}">
+              <ScrollView>
+                    <StackLayout>
+                        <StackLayout class="card">
+                            <StackLayout >
+                                    <HtmlView [html]="textHtml1" ></HtmlView>
+                            </StackLayout>
+                        </StackLayout>
+                    </StackLayout>
+              </ScrollView>        
+    </StackLayout>
+</TabView>

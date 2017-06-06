@@ -1,0 +1,33 @@
+    <ActionBar title="إيد وحدة - إشراف" android.icon="res://icon" android.iconVisibility="always" class="action-bar">
+      <ActionItem (tap)="logout()" android.position="popup" ios.position="left" text="خروج"></ActionItem>
+    </ActionBar>
+    <ScrollView>
+            <StackLayout>
+                <!--<Label class="gold card" textWrap="true" [text]="message$ | async"></Label>     -->
+                <StackLayout class="card">
+                
+                    <!--<StackLayout >
+                        <GridLayout columns="*,*">
+                            <Button text="من نحن   &#xf05a;" col="0" (tap)="goToAboutUs()" class="btn btn-primary btn-active main-btn font-awesome"></Button>
+                            <Button text="الأرشيف  &#xe920;" col="1" (tap)="goToArchive()" class="btn btn-primary btn-active main-btn font-icomoon"></Button>
+                        </GridLayout> 
+                        <GridLayout columns="*,*">
+                             <Button text="أخبار ساخنة &#xe91a;"  isEnabled="false"    col="0" class="btn btn-primary btn-active main-btn font-icomoon"></Button>
+                            <Button text="اطلع &#xf06e;"   col="1" (tap)="goToCaf()" class="btn btn-primary btn-active main-btn font-awesome"></Button>
+                        </GridLayout> 
+                    </StackLayout>-->
+
+
+
+                <StackLayout >
+                            <Button text="الأرشيف  &#xe920;"  (tap)="goToArchive()" class="btn btn-primary  main-btn font-icomoon"></Button>
+                            <Button text="معلومات مالية &#xf0d6;"   (tap)="gotToCaf()" class="btn btn-primary main-btn main-btn-violet font-awesome"></Button>
+                            <Button text="من نحن   &#xf05a;"  (tap)="goToAboutUs()" class="btn btn-primary main-btn  main-btn-orange font-awesome"></Button>
+                            <!--<Button text="أرقام مفيدة &#xf095;"  isEnabled="false"    col="1" class="btn btn-primary main-btn font-awesome"></Button>-->
+
+                </StackLayout>
+
+                </StackLayout>
+            </StackLayout>
+    </ScrollView>
+   

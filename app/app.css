@@ -1,0 +1,156 @@
+@import 'nativescript-theme-core/css/lemon.css';
+
+.action-bar {
+    /*background-color: #31bcff;*/
+    background-color: lightgray;
+    color: #555555
+}
+Page {
+  /*background-color: #4c8bf4; */
+  background-color: #555555; 
+}
+
+.btn-primary {
+  background-color: #2F4F4F;
+  border-color: white; 
+}
+.header {
+    color:white;
+    font-weight: bold;
+    margin: 10;
+}
+
+.logo {
+    margin-top: 5;
+    margin-bottom: 10;
+}
+
+.card-category1 {
+    margin: 10;
+    padding: 0;
+    vertical-align:top;
+    background-color: lightgray;
+    border-width: 1;
+    border-radius: 10;
+    border-color: black;
+}
+.card-category {
+    margin: 0;
+    padding: 0;
+    vertical-align:top;
+    background-color: lightgray;
+    border-width: 0;
+    border-radius: 10;
+    border-color: black;
+}
+.card-category-modal {
+    margin: 0;
+    padding: 0;
+    vertical-align:top;
+    background-color: 	white;
+    border-width: 0;
+    border-radius: 0;
+    border-color: black;
+}
+
+.card {
+    margin: 10;
+    padding: 5;
+    vertical-align:top;
+    background-color: #D3D3D3;
+    border-width: 1;
+    border-radius: 5;
+    border-color: #232323;
+}
+.footer {
+	
+    margin: 0;
+    padding: 0;
+    background-color: black;
+    border-color: white;
+}
+
+.detail-title {
+    color:#444444;
+    font-weight: bold;
+    text-align:center;
+}
+.detail-title-admin {
+    color:green;
+}
+.image-article {
+    /*padding: 50px;*/
+    border-width: 2; 
+    border-color: 	#696969;
+    margin-bottom:20;
+    margin-top:10;
+}
+.gold {
+    background-color: #F0E68C;
+    border-width: 1;
+    border-radius: 5;
+    border-color: 	#F0E68C;
+}
+.main-btn {
+    border-width: 1;
+    border-radius: 5;
+    font-size: 26;
+    height:120;
+    /*width:120;*/
+}
+
+.main-btn-orange {
+    background-color: 	#FF6347;
+    border-color: white;
+
+}
+
+.main-btn-violet {
+    background-color: #4B0082;
+    border-color: white;
+
+}
+
+.font-awesome {
+    font-family: "FontAwesome";
+}
+
+.font-icomoon {
+    font-family: 'icomoon';
+}
+
+.tab-view-font {
+    font-size: 16;
+    /*color:white;*/
+}
+
+
+.cardStyleSingle{
+   background-color:#4B0082;
+   margin: 10; 
+}
+.cardStyleCouple{
+   background-color:darkred;
+   margin: 10; 
+}
+.cardStyleHome{
+   background-color:orangered;
+   margin: 5; 
+}
+.size14 {
+        font-size: 12;
+        font-weight: bold;
+        color:white
+}
+.size18 {
+        font-size: 18;
+        text-align:center;
+        color:white
+}
+
+.size20 {
+        font-size: 25;
+        text-align:center;
+        color: white
+}
+
