@@ -1,4 +1,3 @@
-﻿﻿
 <p align="center">
   <img src="https://github.com/rkhayyat/SyrianForumFrance/blob/master/screenshot/logo.png" width="100"/>
 </p>
@@ -14,7 +13,7 @@ The application in the administrator mode can add photo to an article from one o
 
 2- From images stored in the phone, using [nativescript-imagepicker](https://github.com/NativeScript/nativescript-imagepicker) plugin.
 
-#Screenshots:
+# Screenshots:
 The application consists of two section:
 
 - Part I: The administrator's section, where they can log-in with their email and password to edit, create or delete an article.
@@ -39,7 +38,7 @@ The application consists of two section:
 </p>
 ***
 
-#Environment of development:
+# Environment of development:
 The mobile application is developped in [Nativescript](https://www.nativescript.org/), while the database used to store the informations is on [google Firebase](https://firebase.google.com/).
 
 #Reference:
@@ -48,11 +47,11 @@ The application is based on [EddyVerbruggen/nativescript-plugin-firebase](https:
 
 #Special thanks:
 I would like to thank those who were willing to donate some of their free time helping others in this project.
-###Designing the logo
+### Designing the logo
 - **_[Ayman Ahmadou](https://www.facebook.com/aYman.AhmaDou)_**
 - **_[Samer satea](https://www.facebook.com/sam.satea)_**
 
-###Paraphrasing the articles
+### Paraphrasing the articles
 - **_Mona Heeba_**
 
 I also would like to thank **_[Issam Ghizlan](https://www.facebook.com/issam.ghizlan.9)_**, who did the first initiative in founding the Syrian forum facebook group in France.
