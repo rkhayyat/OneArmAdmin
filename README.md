@@ -6,7 +6,7 @@ Mobile application to help Syrian refugees in France.
 
 The application is still in its early stage, for the time being, the only functionality available is reading/writting archived articles stored on Firebase db.
 ***
-#Add features:
+# Add features:
 The application in the administrator mode can add photo to an article from one of two sources:
 
 1- From Camera, using [nativescript-camera](https://github.com/NativeScript/nativescript-camera) plugin.
@@ -41,11 +41,11 @@ The application consists of two section:
 # Environment of development:
 The mobile application is developped in [Nativescript](https://www.nativescript.org/), while the database used to store the informations is on [google Firebase](https://firebase.google.com/).
 
-#Reference:
+# Reference:
 The application is based on [EddyVerbruggen/nativescript-plugin-firebase](https://github.com/eddyverbruggen/nativescript-plugin-firebase) and inspired by the application sample presented by [Jen Looper](https://www.nativescript.org/blog/merry-and-bright-create-a-mobile-app-with-firebase-angular-2-and-nativescript)
 ***
 
-#Special thanks:
+# Special thanks:
 I would like to thank those who were willing to donate some of their free time helping others in this project.
 ### Designing the logo
 - **_[Ayman Ahmadou](https://www.facebook.com/aYman.AhmaDou)_**
